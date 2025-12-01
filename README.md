@@ -23,8 +23,8 @@ screenai-website/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Cmk31311/ScreenAI-website.git
-   cd ScreenAI-website
+   git clone https://github.com/Cmk31311/ScreenAI.git
+   cd ScreenAI
    ```
 2. Open `index.html` directly in a browser, or serve the folder via any static server:
    ```bash
