@@ -31,6 +31,10 @@ screenai-website/
    npx serve .
    ```
 
+## Downloads
+
+Distribution files (`.zip` and `.dmg` installers) are available on [GitHub Releases](https://github.com/Cmk31311/ScreenAI/releases). These files are too large for the main repository but can be downloaded from the releases page.
+
 ## Deployment
 
 Because this is a static site, you can deploy it using GitHub Pages, Netlify, Vercel, Cloudflare Pages, or any static hosting provider. Just point the host to the repository root.
