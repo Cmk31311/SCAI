@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SCAI – AI that reads your screen and explains it</title>
+  <title>SCAI – Where vision becomes understanding.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SCAI is a desktop assistant that captures your screen, runs OCR locally, and sends cleaned text to AI so you can ask questions and get instant answers about what's on your screen." />
-  <meta name="theme-color" content="#f6f6ef" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Crect x='3' y='3' width='18' height='18' rx='5' stroke='%231a1a1a' stroke-width='2.5' fill='none'/%3E%3Cline x1='6.5' y1='17.5' x2='17.5' y2='6.5' stroke='%231a1a1a' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <meta name="description" content="SCAI – Where vision becomes understanding. An Electron desktop assistant that captures your screen, runs OCR locally with Tesseract.js, and pipes extracted text to Groq for instant insights and actions." />
+  <meta name="theme-color" content="#111111" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Crect x='3' y='3' width='18' height='18' rx='5' stroke='%23FFFFFF' stroke-width='2.5' fill='none'/%3E%3Cline x1='6.5' y1='17.5' x2='17.5' y2='6.5' stroke='%23FFFFFF' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,9 +14,10 @@
   <header class="nav">
     <div class="nav-inner">
       <a href="#top" class="logo" aria-label="SCAI home">
-        <svg class="logo-mark" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="6" stroke="currentColor" stroke-width="2.5" fill="none"/>
-          <line x1="6.5" y1="17.5" x2="17.5" y2="6.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <svg class="logo-mark" width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" fill="#1E3A5F" stroke="#D4AF37" stroke-width="1.5"/>
+          <line x1="6" y1="6" x2="20" y2="19" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="18" cy="6" r="2" fill="#D4AF37"/>
         </svg>
         <span class="logo-text">SCAI</span>
       </a>
@@ -25,7 +26,7 @@
         <a href="#how-it-works">How it works</a>
         <a href="#security">Security</a>
       </nav>
-      <a href="https://github.com/Cmk31311/ScreenAI/releases/download/v1.0.0/ScreenAI-1.0.0-arm64.dmg" class="nav-cta" download aria-label="Get SCAI">Get SCAI</a>
+      <a href="https://github.com/Cmk31311/ScreenAI-app/releases/download/v1.0.2/SCAI-1.0.2-arm64.dmg" class="nav-cta" download aria-label="Get SCAI">Get SCAI</a>
     </div>
   </header>
 
@@ -33,38 +34,24 @@
     <section class="hero" id="top">
       <div class="hero-inner">
         <div class="hero-copy">
-          <p class="badge animate-on-scroll fade-in">Desktop AI for your screen</p>
+          <p class="badge animate-on-scroll fade-in">Where vision becomes understanding.</p>
           <h1 class="animate-on-scroll slide-in-up animate-delay-100">AI that reads your screen and explains it</h1>
           <p class="subtitle animate-on-scroll fade-in animate-delay-200">
-            Press a hotkey to capture your screen, then ask questions about what you see. OCR runs locally. Only cleaned text goes to AI. Get instant answers.
+            A desktop assistant that captures your screen, runs OCR with Tesseract.js, and pipes extracted text to Groq for instant insights and actions.
           </p>
           <div class="hero-actions animate-on-scroll slide-in-up animate-delay-300">
-            <a href="https://github.com/Cmk31311/ScreenAI/releases/download/v1.0.0/ScreenAI-1.0.0-arm64.dmg" class="btn-primary" download>Download</a>
+            <a href="https://github.com/Cmk31311/ScreenAI-app/releases/download/v1.0.2/SCAI-1.0.2-arm64.dmg" class="btn-primary" download>Download</a>
             <a href="#waitlist" class="btn-ghost">Join waitlist</a>
           </div>
           <p class="hero-note animate-on-scroll fade-in animate-delay-400">
-            Global hotkey: Ctrl/Cmd + Shift + X • Code-aware debugging • Auto redaction
+            Global hotkeys: Ctrl/Cmd + Shift + X (capture) • Ctrl/Cmd + Shift + P (hide/show) • Persistent chat history • File uploads
           </p>
         </div>
         <div class="hero-card animate-on-scroll blur-in animate-delay-200">
-          <div class="hero-card-header">
-            <span class="hero-card-title">screen-capture.png</span>
-          </div>
           <div class="hero-card-body">
-            <div class="hero-card-split">
-              <div class="pane pane-left">
-                <p class="pane-label">OCR text</p>
-                <pre class="code-block"><code>TypeError: cannot read properties of undefined
-  at onCapture (App.tsx:42)</code></pre>
-              </div>
-              <div class="pane pane-right">
-                <p class="pane-label">SCAI</p>
-                <p class="ai-message">
-                  The error happens because <span class="code-inline">selectedRegion</span> can be <span class="code-inline">undefined</span>. Add a guard before using it.
-                </p>
-                <pre class="code-block small"><code>if (!selectedRegion) return;
-const text = await ocr.capture(selectedRegion);</code></pre>
-              </div>
+            <img src="screen-capture.png" alt="SCAI Application Interface" class="hero-screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="hero-image-placeholder" style="display: none;">
+              <p>Please add <code>screen-capture.png</code> to display the SCAI interface</p>
             </div>
           </div>
         </div>
@@ -73,34 +60,55 @@ const text = await ocr.capture(selectedRegion);</code></pre>
 
     <section id="features" class="section">
       <div class="section-inner">
-        <h2 class="animate-on-scroll slide-in-up">Built for developers</h2>
+        <h2 class="animate-on-scroll slide-in-up">Built for Everyone</h2>
         <p class="section-subtitle animate-on-scroll fade-in animate-delay-100">
           Turn whatever is on your screen into something you can talk to: errors, logs, dashboards, docs, or any UI.
         </p>
         <div class="features-grid">
           <div class="feature animate-on-scroll slide-in-up">
+            <div class="feature-icon">⌨️</div>
             <h3>Global hotkey capture</h3>
-            <p>Press Ctrl/Cmd + Shift + X from anywhere to capture your screen and run OCR instantly.</p>
+            <p>Press Ctrl/Cmd + Shift + X from anywhere to capture your screen and run OCR instantly. Use Ctrl/Cmd + Shift + P to hide/show the window.</p>
           </div>
           <div class="feature animate-on-scroll slide-in-up animate-delay-100">
-            <h3>Interactive Q&amp;A chat</h3>
-            <p>Ask questions about your screen and get grounded answers using your capture as context.</p>
+            <div class="feature-icon">💬</div>
+            <h3>Interactive Q&A chat</h3>
+            <p>Ask questions about your screen and get grounded answers using your capture as context. Quick action buttons for common queries.</p>
           </div>
           <div class="feature animate-on-scroll slide-in-up animate-delay-200">
-            <h3>Code-aware debugging</h3>
-            <p>Automatic error detection with root cause analysis and fix snippets you can paste directly.</p>
+            <div class="feature-icon">💾</div>
+            <h3>Persistent chat history</h3>
+            <p>All conversations are saved locally and persist across sessions. Search through chat names and message content instantly.</p>
           </div>
           <div class="feature animate-on-scroll slide-in-up animate-delay-300">
-            <h3>Smart summarization</h3>
-            <p>Long OCR text is summarized locally while preserving stack traces, errors, and code blocks.</p>
+            <div class="feature-icon">📋</div>
+            <h3>Organize your chats</h3>
+            <p>Drag-to-reorder chats, rename by double-clicking, and toggle sidebar visibility for more screen space.</p>
           </div>
           <div class="feature animate-on-scroll slide-in-up animate-delay-400">
+            <div class="feature-icon">🔍</div>
+            <h3>Context-aware diagnostics</h3>
+            <p>Automatic error detection with root cause analysis, actionable recommendations, and fix snippets you can paste directly.</p>
+          </div>
+          <div class="feature animate-on-scroll slide-in-up animate-delay-500">
+            <div class="feature-icon">📎</div>
+            <h3>File uploads & previews</h3>
+            <p>Upload files and see text/OCR previews before sending. Code copy buttons for one-click copying of code blocks.</p>
+          </div>
+          <div class="feature animate-on-scroll slide-in-up">
+            <div class="feature-icon">🔒</div>
             <h3>Sensitive data redaction</h3>
             <p>Emails, API keys, JWTs, and private keys are automatically stripped before sending to AI.</p>
           </div>
-          <div class="feature animate-on-scroll slide-in-up animate-delay-500">
-            <h3>Token-aware history</h3>
-            <p>Chat context is automatically trimmed to stay within model limits while preserving recent captures.</p>
+          <div class="feature animate-on-scroll slide-in-up animate-delay-100">
+            <div class="feature-icon">📝</div>
+            <h3>Smart summarization</h3>
+            <p>Long OCR text is summarized locally while preserving stack traces, errors, and code blocks.</p>
+          </div>
+          <div class="feature animate-on-scroll slide-in-up animate-delay-200">
+            <div class="feature-icon">✨</div>
+            <h3>Markdown rendering</h3>
+            <p>Beautiful rendering of code blocks, headers, lists, and inline code with syntax highlighting and copy buttons.</p>
           </div>
         </div>
       </div>
@@ -113,17 +121,22 @@ const text = await ocr.capture(selectedRegion);</code></pre>
           <div class="step animate-on-scroll slide-in-left">
             <span class="step-number">1</span>
             <h3>Capture your screen</h3>
-            <p>Press the global hotkey. SCAI captures your screen and renders it to a canvas for processing.</p>
+            <p>Press Ctrl/Cmd + Shift + X. SCAI captures your screen, renders it to a canvas, and passes it to Tesseract.js for OCR.</p>
           </div>
           <div class="step animate-on-scroll slide-in-up animate-delay-200">
             <span class="step-number">2</span>
-            <h3>Local OCR</h3>
-            <p>Text is extracted locally using Tesseract.js. Results appear instantly in the app.</p>
+            <h3>Local OCR processing</h3>
+            <p>Text is extracted locally using Tesseract.js. OCR output appears instantly in the left panel with copy buttons.</p>
           </div>
           <div class="step animate-on-scroll slide-in-right animate-delay-400">
             <span class="step-number">3</span>
-            <h3>Ask questions</h3>
-            <p>Redacted text is sent to AI. Get explanations, summaries, and code fixes in seconds.</p>
+            <h3>Ask questions &amp; get insights</h3>
+            <p>Redacted text is sent to Groq. Get explanations, summaries, code fixes, and context-aware diagnostics in seconds.</p>
+          </div>
+          <div class="step animate-on-scroll slide-in-up animate-delay-600">
+            <span class="step-number">4</span>
+            <h3>Manage your chats</h3>
+            <p>All conversations are saved locally. Search, reorder, rename, and organize your chats. Everything persists across sessions.</p>
           </div>
         </div>
       </div>
@@ -142,8 +155,8 @@ const text = await ocr.capture(selectedRegion);</code></pre>
             <p>SCAI automatically scrubs emails, tokens, and private keys before sending anything over the wire.</p>
           </div>
           <div class="security-card animate-on-scroll blur-in animate-delay-400">
-            <h3>Transparent by design</h3>
-            <p>See exactly what's being sent in the request so you stay in control of your data.</p>
+            <h3>Local storage &amp; privacy</h3>
+            <p>All chat sessions are stored locally in your browser's storage. See exactly what's being sent to Groq so you stay in control of your data.</p>
           </div>
         </div>
       </div>
@@ -157,7 +170,7 @@ const text = await ocr.capture(selectedRegion);</code></pre>
             Download the app and start asking questions about what's on your screen.
           </p>
           <div class="download-buttons animate-on-scroll slide-in-up animate-delay-200">
-            <a href="https://github.com/Cmk31311/ScreenAI/releases/download/v1.0.0/ScreenAI-1.0.0-arm64.dmg" class="btn-primary large" download aria-label="Download for macOS">Download for macOS</a>
+            <a href="https://github.com/Cmk31311/ScreenAI-app/releases/download/v1.0.2/SCAI-1.0.2-arm64.dmg" class="btn-primary large" download aria-label="Download for macOS">Download for macOS</a>
             <button class="btn-secondary large" disabled aria-label="Download for Windows (coming soon)">Download for Windows</button>
           </div>
           <p class="download-note animate-on-scroll fade-in animate-delay-300">
@@ -182,10 +195,10 @@ const text = await ocr.capture(selectedRegion);</code></pre>
     <div class="footer-inner">
       <div class="footer-left">
         <span class="logo-text">SCAI</span>
-        <span class="footer-fade">AI that reads your screen and explains it.</span>
+        <span class="footer-fade">Where vision becomes understanding.</span>
       </div>
       <nav class="footer-right" aria-label="Footer navigation">
-        <a href="mailto:founder@example.com">Contact</a>
+        <a href="mailto:cmkadhar3@gmail.com">Contact</a>
         <a href="#top">Back to top</a>
       </nav>
     </div>

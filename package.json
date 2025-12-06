@@ -1,9 +1,11 @@
 {
   "name": "scai",
   "version": "1.0.0",
-  "description": "SCAI landing page",
+  "description": "SCAI – Where vision becomes understanding. Landing page for an AI-powered screen intelligence platform.",
   "scripts": {
-    "build": "echo 'No build step required'"
+    "build": "node scripts/build.js",
+    "update-release": "node scripts/fetch-latest-release.js && npm run build",
+    "dev": "npm run build"
   }
 }
 

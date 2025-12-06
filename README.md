@@ -1,5 +1,7 @@
 # SCAI Website
 
+**Where vision becomes understanding.**
+
 SCAI is a responsive landing page that highlights an AI-powered screen intelligence platform. The site is built using plain HTML, CSS, and vanilla JavaScript—no build tools required—so you can deploy it on any static host in seconds.
 
 ## Features

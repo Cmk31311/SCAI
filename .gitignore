@@ -1,13 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build outputs (if using build system)
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
 # OS files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
-# IDE files
+# Editor files
 .vscode/
 .idea/
 *.swp
@@ -18,11 +24,6 @@ Thumbs.db
 *.log
 npm-debug.log*
 
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# Distribution files
-*.zip
-*.dmg
+# Temporary files
+*.tmp
+.cache/

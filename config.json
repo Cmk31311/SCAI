@@ -1,0 +1,108 @@
+{
+  "site": {
+    "name": "SCAI",
+    "tagline": "Where vision becomes understanding.",
+    "title": "SCAI – Where vision becomes understanding.",
+    "description": "SCAI – Where vision becomes understanding. An Electron desktop assistant that captures your screen, runs OCR locally with Tesseract.js, and pipes extracted text to Groq for instant insights and actions.",
+    "hero": {
+      "headline": "AI that reads your screen and explains it",
+      "subtitle": "A desktop assistant that captures your screen, runs OCR with Tesseract.js, and pipes extracted text to Groq for instant insights and actions.",
+      "note": "Global hotkeys: Ctrl/Cmd + Shift + X (capture) • Ctrl/Cmd + Shift + P (hide/show) • Persistent chat history • File uploads"
+    }
+  },
+  "contact": {
+    "email": "cmkadhar3@gmail.com"
+  },
+  "repositories": {
+    "app": {
+      "owner": "Cmk31311",
+      "name": "ScreenAI-app",
+      "useLatest": true,
+      "latestTag": "v1.0.2",
+      "filename": "SCAI-{version}-arm64.dmg"
+    },
+    "website": {
+      "owner": "Cmk31311",
+      "name": "ScreenAI"
+    }
+  },
+  "features": {
+    "heading": "Built for Everyone",
+    "subtitle": "Turn whatever is on your screen into something you can talk to: errors, logs, dashboards, docs, or any UI.",
+    "items": [
+      {
+        "title": "Global hotkey capture",
+        "description": "Press Ctrl/Cmd + Shift + X from anywhere to capture your screen and run OCR instantly. Use Ctrl/Cmd + Shift + P to hide/show the window."
+      },
+      {
+        "title": "Interactive Q&A chat",
+        "description": "Ask questions about your screen and get grounded answers using your capture as context. Quick action buttons for common queries."
+      },
+      {
+        "title": "Persistent chat history",
+        "description": "All conversations are saved locally and persist across sessions. Search through chat names and message content instantly."
+      },
+      {
+        "title": "Organize your chats",
+        "description": "Drag-to-reorder chats, rename by double-clicking, and toggle sidebar visibility for more screen space."
+      },
+      {
+        "title": "Context-aware diagnostics",
+        "description": "Automatic error detection with root cause analysis, actionable recommendations, and fix snippets you can paste directly."
+      },
+      {
+        "title": "File uploads & previews",
+        "description": "Upload files and see text/OCR previews before sending. Code copy buttons for one-click copying of code blocks."
+      },
+      {
+        "title": "Sensitive data redaction",
+        "description": "Emails, API keys, JWTs, and private keys are automatically stripped before sending to AI."
+      },
+      {
+        "title": "Smart summarization",
+        "description": "Long OCR text is summarized locally while preserving stack traces, errors, and code blocks."
+      },
+      {
+        "title": "Markdown rendering",
+        "description": "Beautiful rendering of code blocks, headers, lists, and inline code with syntax highlighting and copy buttons."
+      }
+    ]
+  },
+  "steps": [
+    {
+      "number": 1,
+      "title": "Capture your screen",
+      "description": "Press Ctrl/Cmd + Shift + X. SCAI captures your screen, renders it to a canvas, and passes it to Tesseract.js for OCR."
+    },
+    {
+      "number": 2,
+      "title": "Local OCR processing",
+      "description": "Text is extracted locally using Tesseract.js. OCR output appears instantly in the left panel with copy buttons."
+    },
+    {
+      "number": 3,
+      "title": "Ask questions & get insights",
+      "description": "Redacted text is sent to Groq. Get explanations, summaries, code fixes, and context-aware diagnostics in seconds."
+    },
+    {
+      "number": 4,
+      "title": "Manage your chats",
+      "description": "All conversations are saved locally. Search, reorder, rename, and organize your chats. Everything persists across sessions."
+    }
+  ],
+  "security": [
+    {
+      "title": "Local OCR",
+      "description": "OCR runs on your machine. Only the cleaned-up text is sent to the AI API."
+    },
+    {
+      "title": "Redacted by default",
+      "description": "SCAI automatically scrubs emails, tokens, and private keys before sending anything over the wire."
+    },
+    {
+      "title": "Local storage & privacy",
+      "description": "All chat sessions are stored locally in your browser's storage. See exactly what's being sent to Groq so you stay in control of your data."
+    }
+  ]
+}
+
