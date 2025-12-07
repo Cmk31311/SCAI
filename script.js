@@ -57,4 +57,77 @@ document.addEventListener("DOMContentLoaded", () => {
       observer.observe(el);
     }
   });
+
+  // Waitlist form handling with EmailJS
+  const waitlistForm = document.getElementById('waitlist-form');
+  const waitlistMessage = document.getElementById('waitlist-message');
+  const waitlistSubmit = document.getElementById('waitlist-submit');
+  
+  if (waitlistForm) {
+    // Check if EmailJS is loaded and configured
+    const EMAILJS_PUBLIC_KEY = 'PhRpRIzYYlCizbcfF';
+    const EMAILJS_SERVICE_ID = 'service_avcwb2i';
+    const EMAILJS_TEMPLATE_ID = 'template_9h7hj05';
+    
+    const isEmailJSConfigured = EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY' && 
+                                 EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID' && 
+                                 EMAILJS_TEMPLATE_ID !== 'YOUR_TEMPLATE_ID';
+    
+    if (typeof emailjs !== 'undefined' && isEmailJSConfigured) {
+      // Initialize EmailJS
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+    
+    waitlistForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById('waitlist-email').value;
+      const submitButton = waitlistSubmit;
+      const originalText = submitButton.textContent;
+      
+      // Disable button and show loading state
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+      waitlistMessage.style.display = 'none';
+      
+      // Check if EmailJS is properly configured
+      if (!isEmailJSConfigured || typeof emailjs === 'undefined') {
+        waitlistMessage.textContent = 'Email service not configured. Please contact us at cmkadhar3@gmail.com';
+        waitlistMessage.style.color = 'var(--warning)';
+        waitlistMessage.style.display = 'block';
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+        return;
+      }
+      
+      try {
+        // Send email to user
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          to_email: email,
+          to_name: email.split('@')[0],
+          from_name: 'SCAI Team',
+          message: 'Thank you for joining the SCAI waitlist! We\'ll send you updates on SCAI soon.',
+          subject: 'Welcome to SCAI Waitlist'
+        });
+        
+        // Show success message
+        waitlistMessage.textContent = '✓ Check your email! We\'ve sent you a confirmation.';
+        waitlistMessage.style.color = 'var(--success)';
+        waitlistMessage.style.display = 'block';
+        
+        // Reset form
+        waitlistForm.reset();
+        
+      } catch (error) {
+        console.error('EmailJS Error:', error);
+        waitlistMessage.textContent = 'Something went wrong. Please try again or contact us at cmkadhar3@gmail.com';
+        waitlistMessage.style.color = 'var(--error)';
+        waitlistMessage.style.display = 'block';
+      } finally {
+        // Re-enable button
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      }
+    });
+  }
 });

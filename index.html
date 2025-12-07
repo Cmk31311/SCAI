@@ -180,12 +180,12 @@
         <div id="waitlist" class="waitlist-card animate-on-scroll slide-in-right animate-delay-200">
           <h3>Join the waitlist</h3>
           <p>Drop your email and we'll send you early builds and updates.</p>
-          <form class="waitlist-form" action="https://example.com/waitlist" method="POST">
+          <form class="waitlist-form" id="waitlist-form">
             <label for="waitlist-email" class="sr-only">Email address</label>
             <input type="email" id="waitlist-email" name="email" placeholder="you@example.com" required aria-label="Email address for waitlist" />
-            <button type="submit">Notify me</button>
+            <button type="submit" id="waitlist-submit">Notify me</button>
           </form>
-          <p class="waitlist-hint">Replace the form action with your email provider endpoint.</p>
+          <p class="waitlist-message" id="waitlist-message" style="display: none;"></p>
         </div>
       </div>
     </section>
@@ -204,6 +204,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
