@@ -2,7 +2,7 @@
 
 **Where vision becomes understanding.**
 
-SCAI is an Electron desktop assistant that captures your screen, runs OCR locally with Tesseract.js, and pipes extracted text to Groq for instant insights and actions. It transforms whatever is on your screen into something you can talk to—errors, logs, dashboards, docs, or any UI.
+SCAI is an Electron desktop assistant that captures your screen, runs OCR locally with Tesseract.js, and pipes extracted text to Groq for instant insights and actions. It transforms whatever is on your screen into something you can talk to: errors, logs, dashboards, docs, or any UI.
 
 ## What is SCAI?
 
@@ -22,7 +22,7 @@ All conversations are saved locally and persist across sessions. Search through 
 ### 📋 Organize Your Chats
 Drag-to-reorder chats, rename by double-clicking, and toggle sidebar visibility for more screen space.
 
-### 🔍 Context-Aware Diagnostics
+### 🔍 Context - Aware Diagnostics
 Automatic error detection with root cause analysis, actionable recommendations, and fix snippets you can paste directly.
 
 ### 📎 File Uploads & Previews
