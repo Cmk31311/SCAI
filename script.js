@@ -176,4 +176,82 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Login Modal functionality
+  const loginModal = document.getElementById('loginModal');
+  
+  // Close modal when clicking outside
+  if (loginModal) {
+    loginModal.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        closeLoginModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && loginModal.classList.contains('active')) {
+        closeLoginModal();
+      }
+    });
+
+    // Handle form submissions
+    const loginForm = document.getElementById('loginForm');
+    const signupForm = document.getElementById('signupForm');
+
+    if (loginForm) {
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Add your login logic here
+        console.log('Login submitted');
+        // Example: closeLoginModal();
+      });
+    }
+
+    if (signupForm) {
+      signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Add your signup logic here
+        console.log('Signup submitted');
+        // Example: closeLoginModal();
+      });
+    }
+  }
 });
+
+// Modal functions
+function openLoginModal() {
+  const modal = document.getElementById('loginModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    // Switch to login tab by default
+    switchTab('login');
+  }
+}
+
+function closeLoginModal() {
+  const modal = document.getElementById('loginModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function switchTab(tab) {
+  const loginForm = document.getElementById('loginForm');
+  const signupForm = document.getElementById('signupForm');
+  const tabs = document.querySelectorAll('.tab-button');
+  
+  tabs.forEach(t => t.classList.remove('active'));
+  
+  if (tab === 'login') {
+    if (loginForm) loginForm.classList.add('active');
+    if (signupForm) signupForm.classList.remove('active');
+    tabs[0]?.classList.add('active');
+  } else {
+    if (loginForm) loginForm.classList.remove('active');
+    if (signupForm) signupForm.classList.add('active');
+    tabs[1]?.classList.add('active');
+  }
+}
