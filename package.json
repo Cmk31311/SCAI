@@ -6,6 +6,8 @@
     "build": "node scripts/build.js",
     "update-release": "node scripts/fetch-latest-release.js && npm run build",
     "dev": "npm run build"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1"
   }
 }
-
