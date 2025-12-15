@@ -31,6 +31,7 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#features">Features</a>
         <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
         <a href="#security">Security</a>
       </nav>
       <div class="nav-actions">
@@ -130,9 +131,9 @@
         <p class="section-subtitle animate-on-scroll fade-in animate-delay-100">
           Download the app and start asking questions about what's on your screen.
         </p>
-        <div class="download-buttons animate-on-scroll slide-in-up animate-delay-200" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-          <a href="https://github.com/Cmk31311/SCAI/releases/download/v1.0.1/SCAI-1.0.0-arm64.dmg" class="btn-primary large" download aria-label="Download for macOS">Download for Mac</a>
-          <a href="https://github.com/Cmk31311/SCAI/releases/download/v1.0.1/SCAI.Setup.1.0.0.exe" class="btn-primary large" download aria-label="Download for Windows">Download for Windows</a>
+        <div class="download-buttons animate-on-scroll slide-in-up animate-delay-200">
+          <a href="#" class="btn-primary large" aria-label="Download for macOS" onclick="event.preventDefault();">Download for Mac</a>
+          <a href="#" class="btn-primary large" aria-label="Download for Windows" onclick="event.preventDefault();">Download for Windows</a>
         </div>
       </div>
     </section>
@@ -276,6 +277,71 @@
                 </marker>
               </defs>
             </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="section-inner">
+        <h2 class="animate-on-scroll slide-in-up">Pricing</h2>
+        <p class="section-subtitle animate-on-scroll fade-in animate-delay-100">
+          Start free and upgrade when you’re ready for more power.
+        </p>
+        <div class="pricing-grid">
+          <div class="pricing-card animate-on-scroll slide-in-up">
+            <div class="pricing-header">
+              <span class="pricing-badge">Basic</span>
+              <p class="pricing-tagline">For trying SCAI on your own</p>
+            </div>
+            <div class="pricing-price">
+              <span class="pricing-amount">Free</span>
+            </div>
+            <ul class="pricing-features">
+              <li>Core screen capture &amp; OCR</li>
+              <li>Ask questions about your screen</li>
+              <li>Local storage of recent sessions</li>
+            </ul>
+            <a href="#download" class="btn-primary modern-btn full-width" aria-label="Get started with the Basic plan">
+              <span>Get started</span>
+            </a>
+          </div>
+
+          <div class="pricing-card pricing-card-featured animate-on-scroll slide-in-up animate-delay-200">
+            <div class="pricing-header">
+              <span class="pricing-badge featured">Pro</span>
+              <p class="pricing-tagline">For power users and builders</p>
+            </div>
+            <div class="pricing-price">
+              <span class="pricing-amount">$20</span>
+              <span class="pricing-period">per month</span>
+            </div>
+            <ul class="pricing-features">
+              <li>Everything in Basic</li>
+              <li>Advanced diagnostics &amp; summaries</li>
+              <li>Priority access to new features</li>
+            </ul>
+            <a href="#download" class="btn-primary modern-btn full-width" aria-label="Get started with the Pro plan">
+              <span>Choose Pro</span>
+            </a>
+          </div>
+
+          <div class="pricing-card animate-on-scroll slide-in-up animate-delay-400">
+            <div class="pricing-header">
+              <span class="pricing-badge">Enterprise</span>
+              <p class="pricing-tagline">For teams that need control</p>
+            </div>
+            <div class="pricing-price">
+              <span class="pricing-amount">Custom</span>
+            </div>
+            <ul class="pricing-features">
+              <li>Team rollout &amp; onboarding</li>
+              <li>Security &amp; compliance reviews</li>
+              <li>Dedicated support &amp; roadmap input</li>
+            </ul>
+            <a href="mailto:cmkadhar3@gmail.com?subject=SCAI%20Enterprise%20-%20Schedule%20a%20call" class="btn-secondary modern-btn full-width" aria-label="Schedule a call for Enterprise pricing">
+              <span>Schedule a call</span>
+            </a>
           </div>
         </div>
       </div>
